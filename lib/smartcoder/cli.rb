@@ -17,7 +17,7 @@ module SmartCoder
       init_data = collect_init_preferences
       Config.write_default!(config_path)
       FileUtils.mkdir_p(".smartcoder")
-      write_smart_agreements(init_data)
+      write_smart_agreements(init_data, config_path)
       puts "Initialized SmartCoder at #{config_path}"
     end
 
@@ -88,15 +88,22 @@ module SmartCoder
       }
     end
 
-    def write_smart_agreements(init_data)
-      path = File.join(Dir.pwd, "SMART.md")
+    def write_smart_agreements(init_data, config_path)
+      path = File.join(Dir.pwd, ".smartcoder", "SMART.md")
       if File.exist?(path)
         puts "SMART.md already exists at #{path}, skipping write."
         return
       end
 
+      config_body = File.read(config_path).strip
+
       content = []
       content << "# SMART 项目约定"
+      content << ""
+      content << "## .smartcoder.yml"
+      content << "```yaml"
+      content << config_body
+      content << "```"
       content << ""
       content << "## Git 仓库配置"
       content << "- 仓库名称：#{init_data[:git_info][:repo_name]}"
