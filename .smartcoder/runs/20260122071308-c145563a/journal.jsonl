@@ -1,1 +1,3 @@
 {"step_id":"1","parent_step_id":null,"intent":"patch","repo_commit":null,"container_ref":"host","actions":[],"artifacts":[],"summary":"Patch task: HEllO"}
+{"step_id":"1","parent_step_id":null,"intent":"patch","repo_commit":"0a38331de9a5387c9e6f6f218ac0763a9803cbd6","container_ref":"host","actions":[],"artifacts":[],"summary":"Patch task: HEllO"}
+{"step_id":"2","parent_step_id":"1","intent":"verify","repo_commit":null,"container_ref":"host","actions":[],"artifacts":[],"summary":"Verify skipped"}
