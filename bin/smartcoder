@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "optparse"
+require_relative "../lib/smartcoder"
+
+options = {
+  task: nil,
+  verify_command: nil,
+}
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: smartcoder <command> [options]"
+  opts.separator ""
+  opts.separator "Commands:"
+  opts.separator "    init        Initialize .smartcoder.yml"
+  opts.separator "    chat        Start a chat run"
+  opts.separator ""
+  opts.on("--task TASK", "Provide a task without interactive prompt") do |task|
+    options[:task] = task
+  end
+  opts.on("--verify-cmd CMD", "Override verify command for this run") do |cmd|
+    options[:verify_command] = cmd
+  end
+end
+
+command = ARGV.shift
+parser.parse!(ARGV)
+
+cli = SmartCoder::CLI.new
+
+case command
+when "init"
+  cli.init
+when "chat"
+  cli.chat(task: options[:task], verify_command: options[:verify_command])
+else
+  warn parser.to_s
+  exit 1
+end
