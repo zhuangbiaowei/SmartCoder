@@ -1,12 +1,12 @@
 # SmartCoder TODO
 
 ## v0.1（MVP）
-- [ ] CLI 骨架（init / chat）
-- [ ] DevContainer exec 支持
-- [ ] Step Journal（JSONL）
-- [ ] 每步自动 Git commit
-- [ ] 基础 TUI（Step 列表 + 日志）
-- [ ] Patch + Verify 闭环
+- [x] CLI 骨架（init / chat）
+- [x] DevContainer exec 支持
+- [x] Step Journal（JSONL）
+- [x] 每步自动 Git commit
+- [x] 基础 TUI（Step 列表 + 日志）
+- [x] Patch + Verify 闭环
 
 ## v0.2
 - [ ] Step 分叉 / 回退命令
@@ -26,4 +26,3 @@
 - [ ] PR 自动生成
 - [ ] 多 Run 管理
 - [ ] 文档与示例仓库
-
