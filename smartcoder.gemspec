@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "#{spec.homepage}/changelog"
 
   spec.files = Dir.chdir(__dir__) do
-    `git ls-files -z`.split("\x0")
+    `git ls-files -z`.split("\x0").select { |path| File.file?(path) }
   end
   spec.bindir = "bin"
   spec.executables = ["smartcoder"]
